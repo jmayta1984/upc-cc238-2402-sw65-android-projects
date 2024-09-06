@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import pe.edu.upc.logincompose.core.ui.theme.LoginComposeTheme
+import pe.edu.upc.logincompose.feature_auth.presentation.sign_in.SignInScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,12 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LoginComposeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+               SignInScreen()
             }
         }
     }
