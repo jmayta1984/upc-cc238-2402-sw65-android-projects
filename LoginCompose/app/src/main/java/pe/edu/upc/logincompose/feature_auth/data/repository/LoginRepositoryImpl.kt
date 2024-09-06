@@ -2,6 +2,8 @@ package pe.edu.upc.logincompose.feature_auth.data.repository
 
 import pe.edu.upc.logincompose.feature_auth.data.remote.LoginService
 import pe.edu.upc.logincompose.feature_auth.data.remote.UserDto
+import pe.edu.upc.logincompose.feature_auth.data.remote.UserRequestDto
+import pe.edu.upc.logincompose.feature_auth.data.remote.UserResponseDto
 import pe.edu.upc.logincompose.feature_auth.domain.repository.LoginRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +27,20 @@ class LoginRepositoryImpl(
         })
     }
 
-    override fun signUp(username: String, password: String) {
+    override fun signUp(userRequestDto: UserRequestDto, callback: (UserResponseDto) -> Unit) {
+        loginService.signUp(userRequestDto).enqueue(object: Callback<UserResponseDto> {
+            override fun onResponse(call: Call<UserResponseDto>, response: Response<UserResponseDto>) {
+                if (response.isSuccessful) {
 
+                }
+            }
+
+            override fun onFailure(call: Call<UserResponseDto>, response: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
+
+
 }
