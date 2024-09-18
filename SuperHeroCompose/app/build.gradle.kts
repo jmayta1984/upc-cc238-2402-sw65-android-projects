@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.landscapist.glide)
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
+    ksp(libs.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
