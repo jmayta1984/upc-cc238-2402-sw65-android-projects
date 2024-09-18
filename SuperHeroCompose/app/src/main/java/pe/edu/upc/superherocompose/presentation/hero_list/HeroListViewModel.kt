@@ -18,6 +18,13 @@ class HeroListViewModel(private val repository: HeroRepository) : ViewModel() {
     private val _state = mutableStateOf(UIState<List<Hero>>())
     val state: State<UIState<List<Hero>>> get() = _state
 
+    fun onToggleFavorite(hero: Hero) {
+        hero.isFavorite = !hero.isFavorite
+        val heroes = _state.value.data
+        _state.value = UIState(data = emptyList())
+        _state.value = UIState(data = heroes)
+    }
+
     fun onNameChanged(name: String) {
         _name.value = name
     }
@@ -28,9 +35,9 @@ class HeroListViewModel(private val repository: HeroRepository) : ViewModel() {
             val result = repository.searchHero(_name.value)
 
             if (result is Resource.Success) {
-              _state.value = UIState(data = result.data)
+                _state.value = UIState(data = result.data)
             } else {
-                _state.value = UIState(message = result.message?:"An error occurred")
+                _state.value = UIState(message = result.message ?: "An error occurred")
             }
         }
     }
