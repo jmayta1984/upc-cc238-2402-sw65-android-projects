@@ -12,7 +12,7 @@ import pe.edu.upc.superherocompose.domain.model.Hero
 
 class HeroRepository(private val service: HeroService, private val dao: HeroDao) {
 
-    suspend fun isFavorite(id: String): Boolean = withContext(Dispatchers.IO){
+    private suspend fun isFavorite(id: String): Boolean = withContext(Dispatchers.IO){
 
         dao.fetchById(id)?.let {
             return@withContext true

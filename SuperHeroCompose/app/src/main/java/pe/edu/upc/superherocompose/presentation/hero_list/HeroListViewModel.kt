@@ -23,6 +23,10 @@ class HeroListViewModel(private val repository: HeroRepository) : ViewModel() {
         val heroes = _state.value.data
         _state.value = UIState(data = emptyList())
         _state.value = UIState(data = heroes)
+
+        viewModelScope.launch {
+            if (hero.isFavorite) repository.insertHero(hero) else repository.deleteHero(hero)
+        }
     }
 
     fun onNameChanged(name: String) {
