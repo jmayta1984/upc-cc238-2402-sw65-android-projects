@@ -1,4 +1,4 @@
-package pe.edu.upc.jokescompose.data
+package pe.edu.upc.jokescompose.data.remote
 
 import com.google.gson.annotations.SerializedName
 import pe.edu.upc.jokescompose.domain.Joke

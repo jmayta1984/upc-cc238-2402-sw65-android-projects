@@ -1,4 +1,4 @@
-package pe.edu.upc.jokescompose.data
+package pe.edu.upc.jokescompose.data.remote
 
 import retrofit2.Response
 import retrofit2.http.GET

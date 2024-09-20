@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import pe.edu.upc.jokescompose.common.Resource
 import pe.edu.upc.jokescompose.common.UIState
-import pe.edu.upc.jokescompose.data.JokeRepository
+import pe.edu.upc.jokescompose.data.repository.JokeRepository
 import pe.edu.upc.jokescompose.domain.Joke
 
 class JokeViewModel(private val repository: JokeRepository) : ViewModel() {
