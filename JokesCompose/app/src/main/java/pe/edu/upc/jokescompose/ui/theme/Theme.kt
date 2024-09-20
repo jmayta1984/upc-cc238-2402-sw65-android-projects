@@ -1,4 +1,4 @@
-package pe.edu.upc.superherocompose.ui.theme
+package pe.edu.upc.jokescompose.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -20,8 +20,8 @@ private val DarkColorScheme = darkColorScheme(
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
-    tertiary = Pink40,
-    background = Purple40
+    tertiary = Pink40
+
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
@@ -34,7 +34,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun SuperHeroComposeTheme(
+fun JokesComposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

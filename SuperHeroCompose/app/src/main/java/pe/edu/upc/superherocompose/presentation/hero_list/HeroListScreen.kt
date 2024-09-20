@@ -1,7 +1,9 @@
 package pe.edu.upc.superherocompose.presentation.hero_list
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -30,7 +32,7 @@ import com.skydoves.landscapist.glide.GlideImage
 fun HeroListScreen(viewModel: HeroListViewModel) {
     val name = viewModel.name.value
     val state = viewModel.state.value
-    Scaffold { paddingValues ->
+    Scaffold{ paddingValues ->
         Column(
             modifier = Modifier.padding(paddingValues),
             horizontalAlignment = Alignment.CenterHorizontally
