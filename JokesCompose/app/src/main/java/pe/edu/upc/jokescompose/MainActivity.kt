@@ -11,20 +11,30 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import pe.edu.upc.jokescompose.common.Constants
+import pe.edu.upc.jokescompose.data.JokeRepository
+import pe.edu.upc.jokescompose.data.JokeService
+import pe.edu.upc.jokescompose.presentation.JokeScreen
+import pe.edu.upc.jokescompose.presentation.JokeViewModel
 import pe.edu.upc.jokescompose.ui.theme.JokesComposeTheme
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val service = Retrofit
+            .Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(JokeService::class.java)
+        val viewModel = JokeViewModel(JokeRepository(service))
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             JokesComposeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                JokeScreen(viewModel)
             }
         }
     }
